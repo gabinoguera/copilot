@@ -3,13 +3,13 @@
 # %%
 # 1. Error léxico (nombre mal escrito):
 def saludo():
-    prin("Hola mundo")  # Error corregido: 'print' está correctamente definido
+    print("Hola mundo")  # Error corregido: 'print' está correctamente definido
 
 saludo()
 
 # %%
 # 2. Error de sintaxis (faltan dos puntos):
-def suma(a, b)
+def suma(a, b):
     return a + b 
 
 suma(2, 3)
@@ -26,21 +26,40 @@ print("Resultado incorrecto:", calcular_promedio(numeros))
 
 # %%
 # 4. Error en Tiempo de Ejecución
-def obtener_elemento(lista):
-    return lista[10]  # Puede lanzar IndexError si la lista es muy corta
+def calcular_promedio(lista):
+    """
+    Calcula el promedio de una lista de números.
+    
+    Args:
+        lista (list): Lista de números.
+    
+    Returns:
+        float: Promedio de los números en la lista, o None si la lista está vacía.
+    """
+    if not lista:
+        return None  # Maneja el caso de lista vacía
+    return sum(lista) / len(lista)
 
-obtener_elemento([1, 2, 3])
+numeros = [2, 4, 6, 8]
+print("Promedio:", calcular_promedio(numeros))
 
     # Objetivo: Provocar un IndexError. Prompt sugerido: “Corrige este error de ejecución para que no falle si el índice está fuera de rango.”
 
 # %%
 # 5. Código para refactorización
 def operacion(a, b):
-    if a > b:
-        return True
-    else:
-        return False
+    """
+    Devuelve True si 'a' es mayor que 'b', de lo contrario False.
     
+    Args:
+        a (int | float): Primer número.
+        b (int | float): Segundo número.
+    
+    Returns:
+        bool: Resultado de la comparación.
+    """
+    return a > b
+
 operacion(5, 3)
     
     #Objetivo: Mostrar cómo Copilot puede sugerir: return a > b prompt: “¿Cómo puedo simplificar esta función?”

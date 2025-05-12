@@ -46,9 +46,15 @@ async def chat(request: ChatRequest):
             model="gpt-4",
             messages=[{"role": "user", "content": request.user_message}],
             temperature=0.7,
-            max_tokens=100
+            max_tokens=100,
+            top_p=1,
+            frequency_penalty=0,
+            presence_penalty=0,
         )
         # Map the response to the ChatResponse model
         return response.model_dump()
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+# Para iniciar el servidor en GitHub Codespaces, ejecuta:
+# uvicorn chatbot_fastapi:app --host 0.0.0.0 --port 8000 --reload
