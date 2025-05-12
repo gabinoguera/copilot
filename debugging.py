@@ -45,3 +45,7 @@ operacion(5, 3)
     
     #Objetivo: Mostrar cómo Copilot puede sugerir: return a > b prompt: “¿Cómo puedo simplificar esta función?”
 # %%
+# Error por falta de importación/modulo no encontrado
+import pytest
+
+# %%
